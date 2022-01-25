@@ -2,14 +2,16 @@ import docplex.mp.model as cpx
 
 #lors de l'importation des données, check /n avec strip
 
-#exemple de données
-data = [
-    (1,2), 
-    (2,3), 
-    (1,3), 
-    (3,4), 
-    (4,5) 
-    ]
+datapath = "example.txt"
+file = open(datapath, mode = 'r', encoding = 'utf-8-sig')
+lines = file.readlines()
+file.close()
+data = []
+for line in lines:
+    line = line.strip('\n')
+    line = line.split(' ')
+    data.append(line)
+    #print(my_list)
 
 #Dico { clé : int --> valeur : continuous_vars }
 yDico = {}
