@@ -10,7 +10,6 @@ def srmsvd(datapath, neigs):
     indegs = np.sum(A, axis=0)
     outdegs = np.sum(A, axis=1)
     #print(s,vt)
-    test = indegs.flatten()
     #print(A)
     #print(indegs.shape)
     #print(test)
