@@ -9,7 +9,7 @@ def run(nom_fichier, n):
 
 
         for followee in range(1,n+1):
-            if not(random.randint(0,2)):
+            if (follower!=followee and not(random.randint(0,2))):
                 follows.append(followee)
 
 
