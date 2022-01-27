@@ -2,9 +2,10 @@
 import numpy as np
 from scipy.sparse import csc_matrix
 from scipy.sparse.linalg import svds, eigs
+import matrixGenerator
 
-def srmsvd(datapath, neigs):
-    A = np.matrix([[1, 0, 0,-5], [5, 0, 2,2], [0, -1, 0,3], [0, 0, 3,0]], dtype=float)
+def srmsvd(A, neigs):
+    # A = np.matrix([[1, 0, 0,-5], [5, 0, 2,2], [0, -1, 0,3], [0, 0, 3,0]], dtype=float)
 
     u, s, vt = svds(A, k=neigs, which='LM')
     indegs = np.sum(A, axis=0)
@@ -34,4 +35,4 @@ def srmsvd(datapath, neigs):
     #print(rec_outdegs)
     return u,s,vt,indegs,outdegs,rec_indegs, rec_outdegs
 
-srmsvd('', 3)
+srmsvd(matrixGenerator.generateAdjacentMatrix(10000,0.05, 0.60, float(10000)*0.05, 0.65, 0.02, float(10000)*0.02), 3)
